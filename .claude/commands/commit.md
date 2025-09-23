@@ -1,12 +1,12 @@
 ---
 allowed-tools: Bash(git add:*), Bash(git status:*), Bash(git commit:*)
-description: Create a git commit
+description: Generate and execute a git commit command
 ---
 
 ## Context
 
 - Current git status: !`git status`
-- Current git diff (staged and unstaged changes): !`git diff HEAD`
+- Current diff (staged and unstaged changes): !`git diff HEAD`
 - Current branch: !`git branch --show-current`
 - Recent commits: !`git log --oneline -10`
 
@@ -14,19 +14,19 @@ description: Create a git commit
 
 - **feat**: add a new feature
 - **fix**: fix a bug
-- **chore**: maintenance or configuration
+- **chore**: maintenance/config tasks
 - **docs**: documentation changes
 - **refactor**: refactoring without changing functionality
-- **test**: adding or updating tests
+- **test**: adding/updating tests
 
 ## Your task
 
-Based on the above changes, create a **single-line, concise git commit message** following **Conventional Commits**:
+Based on the above changes, generate a **single-line git commit command** and **execute it automatically**:
 
-- Format: `<type>: <short description>`
+- Format: `git commit -m "<type>: <short description>"`
 - Include the main file or feature name if relevant
-- **Do NOT include any extra text, metadata, emojis, or "Co-Authored-By" lines**
-- Only generate the commit message itself, one line per commit
+- **Do NOT include extra text, metadata, or "Co-Authored-By" lines**
+- The output **must be executed as a Bash command**, not just printed
 
 ### Example
 
@@ -34,5 +34,5 @@ Based on the above changes, create a **single-line, concise git commit message**
 - Changes: added Contact component, refactored form logic
 
 Expected output:
-- feat: add Contact.astro component
-- refactor: update Form.astro logic
+- git commit -m "feat: add Contact.astro component"
+- git commit -m "refactor: update Form.astro logic"
