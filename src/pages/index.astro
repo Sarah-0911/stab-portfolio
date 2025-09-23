@@ -1,11 +1,142 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
+import Hero from '../components/Hero.astro';
+import About from '../components/About.astro';
+import TechStack from '../components/TechStack.astro';
+import Projects from '../components/Projects.astro';
+import Contact from '../components/Contact.astro';
+import Footer from '../components/Footer.astro';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+// Portfolio data - À personnaliser avec vos informations
+const portfolioData = {
+  name: "Sarah Dupont",
+  title: "Développeuse Front-end",
+  subtitle: "Je crée des expériences web modernes et performantes avec React, Vue.js et les dernières technologies front-end.",
+  description: "Passionnée par le développement front-end depuis plus de 3 ans, je spécialise dans la création d'interfaces utilisateur modernes, intuitives et performantes. J'aime transformer des designs complexes en applications web fluides et accessibles.",
+
+  skills: [
+    "React", "Vue.js", "TypeScript", "Next.js", "Nuxt.js",
+    "Tailwind CSS", "SASS", "JavaScript ES6+", "HTML5", "CSS3",
+    "Git", "Figma", "Responsive Design"
+  ],
+
+  stacks: [
+    {
+      category: "Frontend",
+      technologies: [
+        { name: "React", level: 5, icon: "⚛️" },
+        { name: "Vue.js", level: 4, icon: "💚" },
+        { name: "TypeScript", level: 4, icon: "🔷" },
+        { name: "Next.js", level: 4, icon: "▲" },
+        { name: "Nuxt.js", level: 3, icon: "💚" }
+      ]
+    },
+    {
+      category: "Styling",
+      technologies: [
+        { name: "Tailwind CSS", level: 5, icon: "🎨" },
+        { name: "SASS/SCSS", level: 4, icon: "💗" },
+        { name: "CSS3", level: 5, icon: "🎨" },
+        { name: "Styled Components", level: 4, icon: "💅" }
+      ]
+    },
+    {
+      category: "Outils",
+      technologies: [
+        { name: "Git", level: 4, icon: "📱" },
+        { name: "Vite", level: 4, icon: "⚡" },
+        { name: "Webpack", level: 3, icon: "📦" },
+        { name: "Figma", level: 4, icon: "🎨" }
+      ]
+    }
+  ],
+
+  projects: [
+    {
+      title: "E-commerce Dashboard",
+      description: "Interface d'administration moderne pour une plateforme e-commerce avec gestion des produits, commandes et analytics en temps réel.",
+      technologies: ["React", "TypeScript", "Tailwind CSS", "Chart.js"],
+      featured: true,
+      liveUrl: "#",
+      githubUrl: "#"
+    },
+    {
+      title: "Portfolio d'Artiste",
+      description: "Site portfolio créatif pour un artiste digital avec galerie interactive, animations fluides et design minimaliste.",
+      technologies: ["Vue.js", "Nuxt.js", "GSAP", "SASS"],
+      featured: true,
+      liveUrl: "#",
+      githubUrl: "#"
+    },
+    {
+      title: "App de Gestion de Tâches",
+      description: "Application de productivité avec drag & drop, notifications et synchronisation temps réel.",
+      technologies: ["React", "Redux", "Node.js", "Socket.io"],
+      liveUrl: "#",
+      githubUrl: "#"
+    },
+    {
+      title: "Landing Page SaaS",
+      description: "Page d'atterrissage optimisée pour la conversion avec animations et design moderne.",
+      technologies: ["Next.js", "Tailwind CSS", "Framer Motion"],
+      liveUrl: "#",
+      githubUrl: "#"
+    },
+    {
+      title: "Blog Personnel",
+      description: "Blog technique avec système de CMS, recherche et optimisation SEO.",
+      technologies: ["Astro", "Markdown", "TypeScript"],
+      liveUrl: "#",
+      githubUrl: "#"
+    }
+  ],
+
+  contact: {
+    email: "sarah.dupont@email.com",
+    phone: "+33 6 12 34 56 78",
+    linkedin: "https://linkedin.com/in/sarah-dupont",
+    github: "https://github.com/sarah-dupont"
+  }
+};
 ---
 
-<Layout>
-	<Welcome />
+<Layout
+  title={`${portfolioData.name} - ${portfolioData.title}`}
+  description={`Portfolio de ${portfolioData.name}, ${portfolioData.title.toLowerCase()}. ${portfolioData.subtitle}`}
+>
+  <Navigation />
+
+  <Hero
+    name={portfolioData.name}
+    title={portfolioData.title}
+    subtitle={portfolioData.subtitle}
+  />
+
+  <About
+    description={portfolioData.description}
+    skills={portfolioData.skills}
+  />
+
+  <TechStack
+    stacks={portfolioData.stacks}
+  />
+
+  <Projects
+    projects={portfolioData.projects}
+  />
+
+  <Contact
+    email={portfolioData.contact.email}
+    phone={portfolioData.contact.phone}
+    linkedin={portfolioData.contact.linkedin}
+    github={portfolioData.contact.github}
+  />
+
+  <Footer
+    name={portfolioData.name}
+    email={portfolioData.contact.email}
+    linkedin={portfolioData.contact.linkedin}
+    github={portfolioData.contact.github}
+  />
 </Layout>
