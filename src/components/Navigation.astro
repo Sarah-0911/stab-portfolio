@@ -91,12 +91,11 @@ const navItems: NavItem[] = [
     const mobileLinks = menu?.querySelectorAll('a');
     mobileLinks?.forEach((link) => {
       link.addEventListener('click', () => {
-        menu.classList.add('hidden');
+        menu?.classList.add('hidden');
       });
     });
 
     // Navbar scroll effect
-    let lastScrollTop = 0;
     const handleScroll = () => {
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
       const isScrolled = scrollTop > 50;
@@ -155,7 +154,6 @@ const navItems: NavItem[] = [
         });
       }
 
-      lastScrollTop = scrollTop;
     };
 
     // Listen for scroll events
@@ -165,14 +163,16 @@ const navItems: NavItem[] = [
     handleScroll();
 
     // Smooth scrolling for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
       anchor.addEventListener('click', function (e) {
         e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href') as string);
+        const href = (e.currentTarget as HTMLAnchorElement).getAttribute('href');
+        const target = href ? document.querySelector(href) as HTMLElement : null;
         if (target) {
-          target.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
+          const offsetTop = target.offsetTop - 80;
+          window.scrollTo({
+            top: offsetTop,
+            behavior: 'smooth'
           });
         }
       });
