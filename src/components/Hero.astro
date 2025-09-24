@@ -1,11 +1,12 @@
 ---
 export interface Props {
+  presentation: string;
   name: string;
   title: string;
   subtitle: string;
 }
 
-const { name, title, subtitle } = Astro.props;
+const { presentation, title, subtitle } = Astro.props;
 ---
 
 <section class="min-h-screen bg-gradient-to-br from-primary-500 to-secondary-500 text-white overflow-hidden relative">
@@ -14,10 +15,10 @@ const { name, title, subtitle } = Astro.props;
 
       <!-- Content Section -->
       <div class="lg:w-1/2 flex flex-col justify-center py-10 lg:py-20 animate-slide-in-left">
-        <h1 class="text-5xl text-center md:text-left lg:text-7xl font-bold mb-6 lg:mb-8 bg-gradient-to-r from-white to-gray-100 bg-clip-text text-transparent">
-          {name}
+        <h1 class="text-5xl text-center md:text-left lg:text-5xl mb-6 lg:mb-8">
+          {presentation}
         </h1>
-        <h2 class="text-3xl lg:text-8xl text-center md:text-left font-bold mb-6 lg:mb-8 text-white whitespace-pre-line leading-8">
+        <h2 class="text-3xl lg:text-8xl text-center md:text-left font-bold mb-6 lg:mb-8 text-white">
           {title}
         </h2>
         <p class="text-lg lg:text-2xl text-center md:text-left mb-6 lg:mb-8 text-primary-100 max-w-lg leading-relaxed">

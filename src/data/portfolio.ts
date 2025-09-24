@@ -26,6 +26,7 @@ export interface Contact {
 
 export interface PortfolioData {
   name: string;
+  presentation: string;
   title: string;
   subtitle: string;
   description: string;
@@ -37,7 +38,8 @@ export interface PortfolioData {
 
 export const portfolioData: PortfolioData = {
   name: "Sarah Tabet",
-  title: "Développeuse \nFront-end",
+  presentation: "Hey, je suis Sarah",
+  title: "Développeuse Front-end",
   subtitle: "Je crée des sites et applications modernes qui allient esthétique, performance et efficacité.",
   description: "Depuis plus de 2 ans, j'accompagne la création et la refonte de projets digitaux.\nMon approche : transformer une idée ou un design en un produit fonctionnel, fluide et impactant, qui apporte une réelle valeur à ses utilisateurs.",
 

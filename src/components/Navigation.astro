@@ -13,23 +13,23 @@ const navItems: NavItem[] = [
 ];
 ---
 
-<nav class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-sm border-b border-gray-200">
-  <div class="max-w-6xl mx-auto px-6 lg:px-8">
+<nav class="navbar fixed top-0 left-0 right-0 z-50 bg-transparent backdrop-blur-md py-4 transition-all duration-300">
+  <div class="max-w-[90rem] mx-auto px-6">
     <div class="flex items-center justify-between h-16">
       <!-- Logo -->
       <div class="flex-shrink-0">
-        <a href="#" class="text-2xl font-bold text-gray-900">
-          Sarah<span class="text-primary-600">.</span>
+        <a href="#" class="nav-logo text-2xl font-bold text-white hover:text-primary-300 transition-colors duration-200">
+          Sarah<span class="text-primary-400">.</span>
         </a>
       </div>
 
       <!-- Desktop Navigation -->
       <div class="hidden md:block">
-        <div class="flex items-center space-x-8">
+        <div class="nav-container flex items-center space-x-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-6 py-2 transition-all duration-300">
           {navItems.map((item) => (
             <a
               href={item.href}
-              class="text-gray-700 hover:text-primary-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200"
+              class="nav-link text-white/90 hover:text-white hover:bg-white/20 px-4 py-2 rounded-full font-medium transition-all duration-200 border border-transparent hover:border-white/30"
             >
               {item.name}
             </a>
@@ -41,7 +41,7 @@ const navItems: NavItem[] = [
       <div class="md:hidden">
         <button
           type="button"
-          class="mobile-menu-button text-gray-700 hover:text-primary-600 focus:outline-none focus:text-primary-600"
+          class="mobile-menu-button nav-mobile-btn text-white/90 hover:text-white hover:bg-white/20 focus:outline-none focus:text-white border border-white/20 rounded-full p-2 transition-all duration-200"
           aria-label="Menu"
         >
           <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -53,11 +53,11 @@ const navItems: NavItem[] = [
 
     <!-- Mobile Navigation -->
     <div class="mobile-menu hidden md:hidden">
-      <div class="px-2 pt-2 pb-3 space-y-1 bg-white border-t border-gray-200">
+      <div class="nav-mobile-menu px-4 pt-4 pb-4 space-y-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl mx-4 mt-2 transition-all duration-300">
         {navItems.map((item) => (
           <a
             href={item.href}
-            class="text-gray-700 hover:text-primary-600 block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200"
+            class="nav-mobile-link text-white/90 hover:text-white hover:bg-white/20 block px-4 py-3 rounded-xl text-base font-medium transition-all duration-200 border border-transparent hover:border-white/30"
           >
             {item.name}
           </a>
@@ -68,11 +68,19 @@ const navItems: NavItem[] = [
 </nav>
 
 <script>
-  // Mobile menu toggle
+  // Mobile menu toggle and navbar scroll effect
   document.addEventListener('DOMContentLoaded', () => {
     const button = document.querySelector('.mobile-menu-button');
     const menu = document.querySelector('.mobile-menu');
+    const navbar = document.querySelector('.navbar');
+    const navLogo = document.querySelector('.nav-logo');
+    const navContainer = document.querySelector('.nav-container');
+    const navLinks = document.querySelectorAll('.nav-link');
+    const navMobileBtn = document.querySelector('.nav-mobile-btn');
+    const navMobileMenu = document.querySelector('.nav-mobile-menu');
+    const navMobileLinks = document.querySelectorAll('.nav-mobile-link');
 
+    // Mobile menu toggle
     if (button && menu) {
       button.addEventListener('click', () => {
         menu.classList.toggle('hidden');
@@ -86,6 +94,75 @@ const navItems: NavItem[] = [
         menu.classList.add('hidden');
       });
     });
+
+    // Navbar scroll effect
+    let lastScrollTop = 0;
+    const handleScroll = () => {
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      const isScrolled = scrollTop > 50;
+
+      if (isScrolled) {
+        // Scrolled state - dark theme for visibility on white backgrounds
+        navbar?.classList.add('bg-white/95', 'shadow-lg', 'backdrop-blur-xl');
+        navbar?.classList.remove('bg-transparent');
+
+        navLogo?.classList.add('text-gray-900', 'hover:text-primary-600');
+        navLogo?.classList.remove('text-white', 'hover:text-primary-300');
+
+        navContainer?.classList.add('bg-gray-100/50', 'border-gray-200/50');
+        navContainer?.classList.remove('bg-white/10', 'border-white/20');
+
+        navLinks?.forEach(link => {
+          link.classList.add('text-gray-700', 'hover:text-gray-900', 'hover:bg-gray-200/50', 'hover:border-gray-300/50');
+          link.classList.remove('text-white/90', 'hover:text-white', 'hover:bg-white/20', 'hover:border-white/30');
+        });
+
+        navMobileBtn?.classList.add('text-gray-700', 'hover:text-gray-900', 'hover:bg-gray-200/50', 'border-gray-200/50');
+        navMobileBtn?.classList.remove('text-white/90', 'hover:text-white', 'hover:bg-white/20', 'border-white/20');
+
+        navMobileMenu?.classList.add('bg-white/95', 'border-gray-200/50');
+        navMobileMenu?.classList.remove('bg-white/10', 'border-white/20');
+
+        navMobileLinks?.forEach(link => {
+          link.classList.add('text-gray-700', 'hover:text-gray-900', 'hover:bg-gray-200/50', 'hover:border-gray-300/50');
+          link.classList.remove('text-white/90', 'hover:text-white', 'hover:bg-white/20', 'hover:border-white/30');
+        });
+      } else {
+        // Top state - transparent theme for Hero section
+        navbar?.classList.remove('bg-white/95', 'shadow-lg', 'backdrop-blur-xl');
+        navbar?.classList.add('bg-transparent');
+
+        navLogo?.classList.remove('text-gray-900', 'hover:text-primary-600');
+        navLogo?.classList.add('text-white', 'hover:text-primary-300');
+
+        navContainer?.classList.remove('bg-gray-100/50', 'border-gray-200/50');
+        navContainer?.classList.add('bg-white/10', 'border-white/20');
+
+        navLinks?.forEach(link => {
+          link.classList.remove('text-gray-700', 'hover:text-gray-900', 'hover:bg-gray-200/50', 'hover:border-gray-300/50');
+          link.classList.add('text-white/90', 'hover:text-white', 'hover:bg-white/20', 'hover:border-white/30');
+        });
+
+        navMobileBtn?.classList.remove('text-gray-700', 'hover:text-gray-900', 'hover:bg-gray-200/50', 'border-gray-200/50');
+        navMobileBtn?.classList.add('text-white/90', 'hover:text-white', 'hover:bg-white/20', 'border-white/20');
+
+        navMobileMenu?.classList.remove('bg-white/95', 'border-gray-200/50');
+        navMobileMenu?.classList.add('bg-white/10', 'border-white/20');
+
+        navMobileLinks?.forEach(link => {
+          link.classList.remove('text-gray-700', 'hover:text-gray-900', 'hover:bg-gray-200/50', 'hover:border-gray-300/50');
+          link.classList.add('text-white/90', 'hover:text-white', 'hover:bg-white/20', 'hover:border-white/30');
+        });
+      }
+
+      lastScrollTop = scrollTop;
+    };
+
+    // Listen for scroll events
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
+    // Initial call to set correct state
+    handleScroll();
 
     // Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
