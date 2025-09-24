@@ -30,7 +30,7 @@ const { stacks } = Astro.props;
               <div class="group hover:bg-white rounded-xl p-1 transition-all duration-300 hover:shadow-md">
                 <div class="flex items-center space-x-4">
                   <div class="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center group-hover:bg-primary-50 transition-colors duration-300">
-                    <span class="text-2xl">{tech.icon}</span>
+                    <img src={tech.icon} alt={tech.name} class="w-6 h-6" />
                   </div>
                   <span class="font-semibold text-gray-900 text-lg">{tech.name}</span>
                 </div>

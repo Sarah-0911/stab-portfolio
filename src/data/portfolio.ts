@@ -50,29 +50,29 @@ export const portfolioData: PortfolioData = {
     {
       category: "Frontend",
       technologies: [
-        { name: "React", icon: "⚛️" },
-        { name: "TypeScript", icon: "🔷" },
-        { name: "Next.js", icon: "▲" },
-        { name: "JavaScript ES6+", icon: "💛" },
-        { name: "Astro", icon: "🚀" }
+        { name: "React", icon: "/icons/react.svg" },
+        { name: "TypeScript", icon: "/icons/typescript.svg" },
+        { name: "Next.js", icon: "/icons/nextjs.svg" },
+        { name: "JavaScript ES6+", icon: "/icons/javascript.svg" },
+        { name: "Astro", icon: "/icons/astro.svg" }
       ]
     },
     {
       category: "Styling & Design",
       technologies: [
-        { name: "Tailwind CSS", icon: "🎨" },
-        { name: "shadcn/ui", icon: "🧩" },
-        { name: "CSS3", icon: "🎼" },
-        { name: "Figma", icon: "🎯" }
+        { name: "Tailwind CSS", icon: "/icons/tailwind.svg" },
+        { name: "shadcn/ui", icon: "/icons/shadcn.svg" },
+        { name: "CSS3", icon: "/icons/css.svg" },
+        { name: "Figma", icon: "/icons/figma.svg" }
       ]
     },
     {
       category: "Outils & Workflow",
       technologies: [
-        { name: "Git", icon: "🔧" },
-        { name: "WordPress", icon: "📝" },
-        { name: "Claude Code", icon: "🤖" },
-        { name: "Responsive Design", icon: "📱" }
+        { name: "Git", icon: "/icons/git.svg" },
+        { name: "WordPress", icon: "/icons/wordpress.svg" },
+        { name: "Claude Code", icon: "/icons/claude.svg" },
+        { name: "Responsive Design", icon: "/icons/responsive.svg" }
       ]
     }
   ],
