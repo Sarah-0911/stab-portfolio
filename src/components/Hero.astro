@@ -10,20 +10,17 @@ const { name, title, subtitle } = Astro.props;
 
 <section class="min-h-screen bg-gradient-to-br from-primary-500 to-secondary-500 text-white overflow-hidden relative">
   <div class="absolute inset-0 flex">
-    <div class="max-w-7xl mx-auto px-6 lg:px-8 w-full flex flex-col lg:flex-row items-center justify-between relative z-10">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 w-full flex flex-col lg:flex-row items-center relative z-10">
 
       <!-- Content Section -->
-      <div class="lg:w-1/2 flex flex-col justify-center min-h-screen py-20 animate-slide-in-left">
-        <h1 class="text-5xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-white to-gray-100 bg-clip-text text-transparent">
+      <div class="lg:w-1/2 flex flex-col justify-center py-10 lg:py-20 animate-slide-in-left">
+        <h1 class="text-5xl text-center md:text-left lg:text-7xl font-bold mb-6 lg:mb-8 bg-gradient-to-r from-white to-gray-100 bg-clip-text text-transparent">
           {name}
         </h1>
-        <h2 class="text-3xl lg:text-5xl font-bold mb-2 text-white">
-          Développeuse
+        <h2 class="text-3xl lg:text-8xl text-center md:text-left font-bold mb-6 lg:mb-8 text-white whitespace-pre-line leading-8">
+          {title}
         </h2>
-        <h2 class="text-3xl lg:text-5xl font-bold mb-6 text-primary-100">
-          Front-end
-        </h2>
-        <p class="text-lg lg:text-2xl mb-8 text-primary-100 max-w-lg leading-relaxed">
+        <p class="text-lg lg:text-2xl text-center md:text-left mb-6 lg:mb-8 text-primary-100 max-w-lg leading-relaxed">
           {subtitle}
         </p>
 
@@ -44,13 +41,13 @@ const { name, title, subtitle } = Astro.props;
       </div>
 
       <!-- Image Section -->
-      <div class="lg:w-1/2 flex justify-center lg:justify-end animate-slide-in-right lg:absolute lg:right-0 lg:bottom-0 lg:h-full order-first lg:order-last">
+      <div class="lg:w-1/2 flex justify-center lg:justify-end animate-slide-in-right lg:absolute lg:right-0 lg:bottom-0 lg:h-full order-first lg:order-last mt-20 lg:mt-0">
         <div class="flex items-start lg:items-end h-full">
           <!-- Professional Photo -->
           <img
             src="/images/hero-me.png"
             alt="Photo professionnelle"
-            class="w-80 lg:w-full lg:max-h-[74vh] object-contain object-top lg:object-bottom drop-shadow-2xl transform hover:scale-105 transition-transform duration-300"
+            class="w-60 md:w-80 lg:w-full lg:max-h-[74vh] object-contain object-top lg:object-bottom drop-shadow-2xl transform hover:scale-105 transition-transform duration-300"
           />
         </div>
       </div>
