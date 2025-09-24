@@ -1,6 +1,5 @@
 export interface Technology {
   name: string;
-  level: number;
   icon: string;
 }
 
@@ -43,38 +42,37 @@ export const portfolioData: PortfolioData = {
   description: "Depuis plus de 2 ans, j'accompagne la création et la refonte de projets digitaux.\nMon approche : transformer une idée ou un design en un produit fonctionnel, fluide et impactant, qui apporte une réelle valeur à ses utilisateurs.",
 
   skills: [
-    "React", "Vue.js", "TypeScript", "Next.js", "Nuxt.js",
-    "Tailwind CSS", "SASS", "JavaScript ES6+", "HTML5", "CSS3",
-    "Git", "Figma", "Responsive Design"
+    "React", "TypeScript", "Next.js",
+    "Tailwind CSS", "WordPress"
   ],
 
   stacks: [
     {
       category: "Frontend",
       technologies: [
-        { name: "React", level: 5, icon: "⚛️" },
-        { name: "Vue.js", level: 4, icon: "💚" },
-        { name: "TypeScript", level: 4, icon: "🔷" },
-        { name: "Next.js", level: 4, icon: "▲" },
-        { name: "Nuxt.js", level: 3, icon: "💚" }
+        { name: "React", icon: "⚛️" },
+        { name: "TypeScript", icon: "🔷" },
+        { name: "Next.js", icon: "▲" },
+        { name: "JavaScript ES6+", icon: "💛" },
+        { name: "Astro", icon: "🚀" }
       ]
     },
     {
-      category: "Styling",
+      category: "Styling & Design",
       technologies: [
-        { name: "Tailwind CSS", level: 5, icon: "🎨" },
-        { name: "SASS/SCSS", level: 4, icon: "💗" },
-        { name: "CSS3", level: 5, icon: "🎨" },
-        { name: "Styled Components", level: 4, icon: "💅" }
+        { name: "Tailwind CSS", icon: "🎨" },
+        { name: "shadcn/ui", icon: "🧩" },
+        { name: "CSS3", icon: "🎼" },
+        { name: "Figma", icon: "🎯" }
       ]
     },
     {
-      category: "Outils",
+      category: "Outils & Workflow",
       technologies: [
-        { name: "Git", level: 4, icon: "📱" },
-        { name: "Vite", level: 4, icon: "⚡" },
-        { name: "Webpack", level: 3, icon: "📦" },
-        { name: "Figma", level: 4, icon: "🎨" }
+        { name: "Git", icon: "🔧" },
+        { name: "WordPress", icon: "📝" },
+        { name: "Claude Code", icon: "🤖" },
+        { name: "Responsive Design", icon: "📱" }
       ]
     }
   ],
