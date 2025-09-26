@@ -14,11 +14,11 @@ export interface Props {
 const { projects } = Astro.props;
 ---
 
-<section id="projects" class="py-16 md:py-20 bg-gray-50">
+<section id="projects" class="py-16 md:py-20 bg-[#171717]">
   <div class="max-w-[90rem] mx-auto px-6 lg:px-8">
     <div class="text-center mb-16 animate-fade-in">
-      <h2 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-        Mes <span class="text-primary-600">projets</span>
+      <h2 class="text-4xl lg:text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-br from-white via-primary-100 to-secondary-500">
+        Mes projets
       </h2>
       <p class="text-xl text-gray-600 max-w-2xl mx-auto">
         Une sélection de projets qui démontrent mes compétences et ma passion pour le développement front-end
@@ -26,29 +26,32 @@ const { projects } = Astro.props;
     </div>
 
     <!-- Projects Grid -->
-    <div class="grid lg:grid-cols-2 gap-8">
+    <div class="grid md:grid-cols-1 lg:grid-cols-2 gap-8">
       {projects.map((project, index) => (
         <article
-          class="group overflow-hidden relative bg-gray-800 border border-gray-700 h-[400px] rounded-2xl flex flex-col lg:flex-row lg:gap-6 hover:shadow-2xl hover:border-primary-400 transition-all duration-300 cursor-pointer animate-slide-up"
+          class="group overflow-hidden relative h-[300px] md:h-[400px] bg-[#121212] rounded-2xl flex flex-col hover:shadow-2xl hover:border-primary-400 transition-all duration-300 cursor-pointer animate-slide-up"
           style={`animation-delay: ${index * 200}ms`}
         >
 
-          <div class="flex flex-col gap-4 w-full items-start p-6 lg:p-8 text-left lg:flex-1">
-            <h3 class="text-left text-xl md:text-2xl font-medium tracking-tighter bg-clip-text text-transparent bg-gradient-to-br from-white via-white to-primary-300 group-hover:to-primary-200 transition-all duration-300">
-              {project.title}
-            </h3>
-            <p class="w-full text-gray-300 text-left text-sm md:text-base font-light tracking-tight leading-relaxed text-balance">
-              {project.description}
-            </p>
-            <img
-              src={project.image}
-              alt={project.title}
-              loading="lazy"
-              class="object-contain w-full h-full group-hover:scale-105 transition-transform duration-500"
-              width="1920"
-              height="1080"
-              decoding="async"
-            />
+          <div class="relative flex flex-col w-full h-full">
+
+            <div class="flex flex-col gap-2 md:gap-4 items-start p-6 md:p-8 lg:p-10 text-left">
+              <h3 class="text-left text-lg md:text-xl lg:text-3xl font-medium tracking-tighter bg-clip-text text-transparent bg-gradient-to-br from-white via-white to-primary-300 group-hover:to-primary-200 transition-all duration-300">
+                {project.title}
+              </h3>
+              <p class="w-full text-gray-300 text-left text-xs md:text-sm lg:text-base font-light tracking-tight leading-relaxed text-balance">
+                {project.description}
+              </p>
+            </div>
+
+            <div class="absolute left-0 right-0 -bottom-4 lg:-bottom-20 flex items-center justify-center">
+              <img
+                src={project.image}
+                alt={project.title}
+                loading="lazy"
+                class="object-contain w-full h-3/4 group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
           </div>
         </article>
       ))}
