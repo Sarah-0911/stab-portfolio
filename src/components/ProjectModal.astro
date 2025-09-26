@@ -1,0 +1,210 @@
+---
+// Composant modale pour les projets
+---
+
+<!-- Modale dynamique -->
+<div
+  id="project-modal"
+  class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 opacity-0 invisible transition-all duration-300"
+  data-modal
+>
+  <div class="bg-dark-card rounded-2xl max-w-6xl w-full max-h-[90vh] overflow-hidden shadow-2xl transform scale-95 transition-all duration-300">
+
+    <!-- Header avec bouton fermer -->
+    <div class="flex justify-between items-center p-6 border-b border-gray-700">
+      <h2 id="modal-title" class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-br from-white via-white to-primary-300">
+        Titre du projet
+      </h2>
+      <button
+        class="text-gray-400 hover:text-white transition-colors p-2 hover:bg-gray-700 rounded-lg"
+        data-close-modal
+      >
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Contenu principal -->
+    <div class="flex flex-col lg:flex-row max-h-[calc(90vh-80px)]">
+
+      <!-- Image à gauche -->
+      <div class="lg:w-1/2 p-6 flex items-center justify-center bg-gradient-to-br from-gray-800 to-gray-900">
+        <div class="relative max-w-sm w-full">
+          <!-- Project screenshot -->
+          <img
+            id="modal-screenshot"
+            src=""
+            alt=""
+            class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 object-cover z-0 rounded-sm"
+          />
+          <!-- Mockup overlay -->
+          <img
+            id="modal-mockup"
+            src=""
+            alt=""
+            class="object-contain w-full h-full z-10 relative pointer-events-none"
+          />
+        </div>
+      </div>
+
+      <!-- Informations à droite -->
+      <div class="lg:w-1/2 p-6 overflow-y-auto">
+
+        <!-- Description -->
+        <div class="mb-8">
+          <p id="modal-description" class="text-gray-300 leading-relaxed text-lg">
+            Description du projet
+          </p>
+        </div>
+
+        <!-- Technologies -->
+        <div class="mb-8">
+          <h3 class="text-xl font-semibold text-white mb-4 flex items-center gap-2">
+            <svg class="w-5 h-5 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+            </svg>
+            Technologies
+          </h3>
+          <div id="modal-technologies" class="flex flex-wrap gap-2">
+            <!-- Technologies dynamiques -->
+          </div>
+        </div>
+
+        <!-- Features -->
+        <div class="mb-8">
+          <h3 class="text-xl font-semibold text-white mb-4 flex items-center gap-2">
+            <svg class="w-5 h-5 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
+            </svg>
+            Ce que j'ai réalisé
+          </h3>
+          <ul id="modal-features" class="space-y-3">
+            <!-- Features dynamiques -->
+          </ul>
+        </div>
+
+        <!-- Lien vers le site -->
+        <div id="modal-link-container" class="pt-4 border-t border-gray-700 hidden">
+          <a
+            id="modal-link"
+            href=""
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 bg-primary-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-primary-700 transition-colors"
+          >
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+            </svg>
+            Voir le site en ligne
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Gestion de la modale
+  const modal = document.getElementById('project-modal');
+  const closeBtn = document.querySelector('[data-close-modal]');
+
+  // Fonction pour ouvrir la modale avec les données du projet
+  function openProjectModal(project: any) {
+    if (!modal) return;
+
+    // Mettre à jour le contenu
+    const modalTitle = document.getElementById('modal-title');
+    const modalDescription = document.getElementById('modal-description');
+    const modalScreenshot = document.getElementById('modal-screenshot') as HTMLImageElement;
+    const modalMockup = document.getElementById('modal-mockup') as HTMLImageElement;
+    const modalTechnologies = document.getElementById('modal-technologies');
+    const modalFeatures = document.getElementById('modal-features');
+    const modalLinkContainer = document.getElementById('modal-link-container');
+    const modalLink = document.getElementById('modal-link') as HTMLAnchorElement;
+
+    if (modalTitle) modalTitle.textContent = project.title;
+    if (modalDescription) modalDescription.textContent = project.description;
+
+    if (modalScreenshot) {
+      modalScreenshot.src = project.screenshot;
+      modalScreenshot.alt = project.altText || project.title;
+
+      // Appliquer les bonnes dimensions selon le mockup
+      const isMobile = project.mockup.includes('mobile');
+      modalScreenshot.className = `absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 object-cover z-0 rounded-sm ${
+        isMobile
+          ? 'w-[32%] h-[74%] -translate-y-[48%]'
+          : 'w-[85%] h-[72%] -translate-y-[45%]'
+      }`;
+    }
+
+    if (modalMockup) modalMockup.src = project.mockup;
+
+    // Technologies
+    if (modalTechnologies) {
+      modalTechnologies.innerHTML = project.technologies.map((tech: string) =>
+        `<span class="bg-primary-600/20 text-primary-300 px-3 py-2 rounded-lg text-sm font-medium border border-primary-500/30">${tech}</span>`
+      ).join('');
+    }
+
+    // Features
+    if (modalFeatures) {
+      modalFeatures.innerHTML = project.features.map((feature: string) =>
+        `<li class="flex items-start gap-3 text-gray-300">
+          <svg class="w-5 h-5 text-primary-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+          </svg>
+          <span class="leading-relaxed">${feature}</span>
+        </li>`
+      ).join('');
+    }
+
+    // Lien live
+    if (modalLinkContainer && modalLink) {
+      if (project.liveUrl && project.liveUrl !== '#') {
+        modalLink.href = project.liveUrl;
+        modalLinkContainer.classList.remove('hidden');
+      } else {
+        modalLinkContainer.classList.add('hidden');
+      }
+    }
+
+    // Ouvrir la modale
+    modal.classList.remove('opacity-0', 'invisible');
+    modal.querySelector('.bg-dark-card')?.classList.remove('scale-95');
+    modal.querySelector('.bg-dark-card')?.classList.add('scale-100');
+    document.body.style.overflow = 'hidden';
+  }
+
+  // Fonction pour fermer la modale
+  function closeModal() {
+    if (modal) {
+      modal.classList.add('opacity-0', 'invisible');
+      modal.querySelector('.bg-dark-card')?.classList.remove('scale-100');
+      modal.querySelector('.bg-dark-card')?.classList.add('scale-95');
+      document.body.style.overflow = 'auto';
+    }
+  }
+
+  // Event listeners
+  closeBtn?.addEventListener('click', closeModal);
+
+  // Fermer en cliquant sur le backdrop
+  modal?.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      closeModal();
+    }
+  });
+
+  // Fermer avec Escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      closeModal();
+    }
+  });
+
+  // Exposer la fonction globalement
+  (window as any).openProjectModal = openProjectModal;
+</script>

@@ -1,13 +1,16 @@
 ---
+import ProjectModal from './ProjectModal.astro';
+
 export interface Props {
   projects: {
     title: string;
     subtitle: string;
-    description?: string;
+    description: string;
     altText?: string;
     mockup: string;
     screenshot: string;
     technologies: string[];
+    features: string[];
     liveUrl?: string;
   }[];
 }
@@ -32,6 +35,7 @@ const { projects } = Astro.props;
         <article
           class="group overflow-hidden relative h-[300px] md:h-[400px] bg-dark-card rounded-2xl flex flex-col hover:border-primary-400 hover:shadow-2xl hover:shadow-primary-500/20 hover:-translate-y-2 transition-all duration-500 cursor-pointer animate-slide-up"
           style={`animation-delay: ${index * 200}ms`}
+          onclick={`openProjectModal(${JSON.stringify(project)})`}
         >
 
           <div class="relative flex flex-col w-full h-full">
@@ -73,3 +77,6 @@ const { projects } = Astro.props;
     </div>
   </div>
 </section>
+
+<!-- Inclusion de la modale -->
+<ProjectModal />
