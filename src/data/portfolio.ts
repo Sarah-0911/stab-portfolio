@@ -16,7 +16,8 @@ export interface Project {
   technologies: string[];
   features: string[];
   liveUrl?: string;
-  image: string;
+  mockup: string;          // Image du mockup (device frame)
+  screenshot: string;      // Screenshot du projet (contenu)
 }
 
 export interface Contact {
@@ -99,7 +100,8 @@ export const portfolioData: PortfolioData = {
         "Architecture front propre et conforme à la maquette Figma"
       ],
       liveUrl: "https://wonderlive.io/",
-      image: "/images/mockup-mobile.png"
+      mockup: "/images/mockup-mobile.png",
+      screenshot: "/images/projects/wonderlive/screenshot.png"
     },
     {
       title: "InkPro",
@@ -121,7 +123,8 @@ export const portfolioData: PortfolioData = {
         "Configuration et sauvegarde des horaires d'ouverture"
       ],
       liveUrl: "https://www.inkpro.io/",
-      image: "/images/mockup-desktop.png"
+      mockup: "/images/mockup-desktop.png",
+      screenshot: "/images/projects/inkpro/screenshot.png"
     },
     {
       title: "Otour2",
@@ -140,7 +143,8 @@ export const portfolioData: PortfolioData = {
         "Refonte responsive à partir d'un site existant"
       ],
       liveUrl: "https://www.otour2.com/",
-      image: "/images/mockup-desktop.png"
+      mockup: "/images/mockup-desktop.png",
+      screenshot: "/images/projects/otour2/screenshot.png"
     },
     {
       title: "Ucanfit",
@@ -158,7 +162,8 @@ export const portfolioData: PortfolioData = {
         "Intégration fidèle aux demandes graphiques du client",
         "Optimisation de la mise en page pour desktop et mobile"
       ],
-      image: "/images/mockup-desktop.png"
+      mockup: "/images/mockup-desktop.png",
+      screenshot: "/images/projects/ucanfit/screenshot.png"
     },
     {
       title: "Empowered Geeky Girl",
@@ -178,7 +183,8 @@ export const portfolioData: PortfolioData = {
         "Architecture éditoriale du site",
         "Adaptation du site aux besoins spécifiques du client",
       ],
-      image: "/images/mockup-desktop.png"
+      mockup: "/images/mockup-desktop.png",
+      screenshot: "/images/projects/empowered-geeky-girl/screenshot.png"
     },
   ],
 
