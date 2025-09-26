@@ -2,11 +2,12 @@
 export interface Props {
   projects: {
     title: string;
-    description: string;
+    subtitle: string;
+    description?: string;
+    altText?: string;
     image?: string;
     technologies: string[];
     liveUrl?: string;
-    githubUrl?: string;
     featured?: boolean;
   }[];
 }
@@ -40,14 +41,13 @@ const { projects } = Astro.props;
                 {project.title}
               </h3>
               <p class="w-full text-gray-300 text-left text-xs md:text-sm lg:text-base font-light tracking-tight leading-relaxed text-balance">
-                {project.description}
+                {project.subtitle}
               </p>
             </div>
 
             <div class="absolute left-0 right-0 -bottom-4 lg:-bottom-20 flex items-center justify-center">
               <img
                 src={project.image}
-                alt={project.title}
                 loading="lazy"
                 class="object-contain w-full h-3/4 group-hover:scale-105 transition-transform duration-500"
               />

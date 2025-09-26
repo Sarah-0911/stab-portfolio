@@ -10,12 +10,13 @@ export interface TechStack {
 
 export interface Project {
   title: string;
+  subtitle: string;
   description: string;
+  altText?: string;
   technologies: string[];
-  featured?: boolean;
-  liveUrl: string;
-  githubUrl: string;
-  image?: string;
+  features: string[];
+  liveUrl?: string;
+  image: string;
 }
 
 export interface Contact {
@@ -81,29 +82,104 @@ export const portfolioData: PortfolioData = {
 
   projects: [
     {
-      title: "E-commerce Dashboard",
-      description: "Interface d'administration moderne pour une plateforme e-commerce avec gestion des produits, commandes et analytics en temps réel.",
-      technologies: ["React", "TypeScript", "Tailwind CSS", "Chart.js"],
-      liveUrl: "#",
-      githubUrl: "#",
-      image: "/images/mockup-desktop.png"
-    },
-    {
-      title: "Portfolio d'Artiste",
-      description: "Site portfolio créatif pour un artiste digital avec galerie interactive, animations fluides et design minimaliste.",
-      technologies: ["Vue.js", "Nuxt.js", "GSAP", "SASS"],
-      liveUrl: "#",
-      githubUrl: "#",
-      image: "/images/mockup-desktop.png"
-    },
-    {
-      title: "App Mobile de Productivité",
-      description: "Application mobile intuitive pour la gestion de tâches avec notifications push et synchronisation cloud.",
-      technologies: ["React Native", "TypeScript", "Firebase", "Redux"],
-      liveUrl: "#",
-      githubUrl: "#",
+      title: "Wonderlive",
+      subtitle: "Développement front-end d'une application mobile pour un réseau social basé sur la blockchain.",
+      description: "Application mobile permettant aux utilisateurs de partager du contenu et d'interagir sur un réseau social sécurisé, grâce à l'intégration de la blockchain. Le projet est actuellement en phase de bêta-test.",
+      altText: "Aperçu de l'application Wonderlive",
+      technologies: [
+        "React Native",
+        "Expo",
+        "TypeScript"
+      ],
+      features: [
+        "Intégration de modales dynamiques",
+        "Onboarding complet du service marketplace",
+        "Éditeur photo avec filtres et rognage",
+        "Messagerie intégrée avec chat par conversation",
+        "Architecture front propre et conforme à la maquette Figma"
+      ],
+      liveUrl: "https://wonderlive.io/",
       image: "/images/mockup-mobile.png"
-    }
+    },
+    {
+      title: "InkPro",
+      subtitle: "Développement de modules front et back pour un assistant intelligent dédié aux tatoueurs.",
+      description: "Application web permettant aux tatoueurs de gérer leurs rendez-vous, leurs clients et leurs disponibilités, avec un assistant automatisé connecté à Instagram.",
+      altText: "Aperçu de l'application InkPro",
+      technologies: [
+        "Next.js",
+        "React",
+        "TypeScript",
+        "Prisma",
+        "PostgreSQL",
+        "Tailwind CSS"
+      ],
+      features: [
+        "Module CRM Clients (liste, fiches détaillées, actions rapides)",
+        "Interface de gestion des services et tarifs",
+        "Gestion des rendez-vous : création, édition, suppression avec persistance en base",
+        "Configuration et sauvegarde des horaires d'ouverture"
+      ],
+      liveUrl: "https://www.inkpro.io/",
+      image: "/images/mockup-desktop.png"
+    },
+    {
+      title: "Otour2",
+      subtitle: "Refonte front-end complète d'un site e-commerce avec Tailwind CSS.",
+      description: "Site e-commerce permettant de commander des emballages alimentaires personnalisés. L'interface a été repensée pour une navigation plus moderne et intuitive.",
+      altText: "Aperçu du site Otour2",
+      technologies: [
+        "Tailwind CSS",
+        "JavaScript",
+        "Figma"
+      ],
+      features: [
+        "Reprise complète du front avec Tailwind CSS",
+        "Intégration pixel-perfect à partir d'une maquette Figma",
+        "Carrousels et slides dynamiques en JavaScript",
+        "Refonte responsive à partir d'un site existant"
+      ],
+      liveUrl: "https://www.otour2.com/",
+      image: "/images/mockup-desktop.png"
+    },
+    {
+      title: "Ucanfit",
+      subtitle: "Amélioration du site WordPress d'une salle de sport avec refonte du planning et création d'un encart personnalisé.",
+      description: "Site WordPress permettant la gestion des cours et abonnements d'une salle de sport. Amélioration de l'expérience utilisateur grâce à une présentation modernisée du planning et à l'ajout d'un encart informatif personnalisé.",
+      altText: "Aperçu du site Ucanfit",
+      technologies: [
+        "WordPress",
+        "Elementor",
+        "CSS"
+      ],
+      features: [
+        "Refonte responsive du planning des cours",
+        "Création d'un encart fixe (popup figée) avec affichage/masquage activable",
+        "Intégration fidèle aux demandes graphiques du client",
+        "Optimisation de la mise en page pour desktop et mobile"
+      ],
+      image: "/images/mockup-desktop.png"
+    },
+    {
+      title: "Empowered Geeky Girl",
+      subtitle: "Conception et réalisation d'un site/blog WordPress pour une coach indépendante.",
+      description: "Site WordPress conçu pour mettre en valeur l'activité d'une coach indépendante à travers un blog professionnel.",
+      altText: 'Aperçu du site Empowered Geeky Girl',
+      technologies: [
+        "Figma",
+        "WordPress",
+        "Elementor",
+        "CSS",
+      ],
+      features: [
+        "Conception de maquettes et prototypes sur Figma",
+        "Intégration WordPress (thème personnalisé)",
+        "Optimisation SEO",
+        "Architecture éditoriale du site",
+        "Adaptation du site aux besoins spécifiques du client",
+      ],
+      image: "/images/mockup-desktop.png"
+    },
   ],
 
   contact: {
