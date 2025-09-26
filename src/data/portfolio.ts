@@ -15,6 +15,7 @@ export interface Project {
   featured?: boolean;
   liveUrl: string;
   githubUrl: string;
+  image?: string;
 }
 
 export interface Contact {
@@ -83,38 +84,25 @@ export const portfolioData: PortfolioData = {
       title: "E-commerce Dashboard",
       description: "Interface d'administration moderne pour une plateforme e-commerce avec gestion des produits, commandes et analytics en temps réel.",
       technologies: ["React", "TypeScript", "Tailwind CSS", "Chart.js"],
-      featured: true,
       liveUrl: "#",
-      githubUrl: "#"
+      githubUrl: "#",
+      image: "/images/mockup-desktop.png"
     },
     {
       title: "Portfolio d'Artiste",
       description: "Site portfolio créatif pour un artiste digital avec galerie interactive, animations fluides et design minimaliste.",
       technologies: ["Vue.js", "Nuxt.js", "GSAP", "SASS"],
-      featured: true,
       liveUrl: "#",
-      githubUrl: "#"
+      githubUrl: "#",
+      image: "/images/mockup-tablet.png"
     },
     {
-      title: "App de Gestion de Tâches",
-      description: "Application de productivité avec drag & drop, notifications et synchronisation temps réel.",
-      technologies: ["React", "Redux", "Node.js", "Socket.io"],
+      title: "App Mobile de Productivité",
+      description: "Application mobile intuitive pour la gestion de tâches avec notifications push et synchronisation cloud.",
+      technologies: ["React Native", "TypeScript", "Firebase", "Redux"],
       liveUrl: "#",
-      githubUrl: "#"
-    },
-    {
-      title: "Landing Page SaaS",
-      description: "Page d'atterrissage optimisée pour la conversion avec animations et design moderne.",
-      technologies: ["Next.js", "Tailwind CSS", "Framer Motion"],
-      liveUrl: "#",
-      githubUrl: "#"
-    },
-    {
-      title: "Blog Personnel",
-      description: "Blog technique avec système de CMS, recherche et optimisation SEO.",
-      technologies: ["Astro", "Markdown", "TypeScript"],
-      liveUrl: "#",
-      githubUrl: "#"
+      githubUrl: "#",
+      image: "/images/mockup-mobile.png"
     }
   ],
 
