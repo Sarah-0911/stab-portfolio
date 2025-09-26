@@ -16,8 +16,8 @@ export interface Project {
   technologies: string[];
   features: string[];
   liveUrl?: string;
-  mockup: string;          // Image du mockup (device frame)
-  screenshot: string;      // Screenshot du projet (contenu)
+  mockup: string;
+  screenshot: string;
 }
 
 export interface Contact {
