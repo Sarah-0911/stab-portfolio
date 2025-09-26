@@ -94,7 +94,7 @@ export const portfolioData: PortfolioData = {
       technologies: ["Vue.js", "Nuxt.js", "GSAP", "SASS"],
       liveUrl: "#",
       githubUrl: "#",
-      image: "/images/mockup-tablet.png"
+      image: "/images/mockup-desktop.png"
     },
     {
       title: "App Mobile de Productivité",
