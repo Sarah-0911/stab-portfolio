@@ -15,22 +15,22 @@ export interface Props {
 const { projects } = Astro.props;
 ---
 
-<section id="projects" class="py-16 md:py-20 bg-[#171717]">
+<section id="projects" class="py-16 md:py-20 bg-dark-section">
   <div class="max-w-[90rem] mx-auto px-6 lg:px-8">
     <div class="text-center mb-16 animate-fade-in">
       <h2 class="text-4xl lg:text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-br from-white via-primary-100 to-secondary-500">
         Mes projets
       </h2>
-      <p class="text-xl text-gray-600 max-w-2xl mx-auto">
-        Une sélection de projets qui démontrent mes compétences et ma passion pour le développement front-end
+      <p class="text-xl text-gray-400 max-w-2xl mx-auto">
+        Des idées transformées en expériences digitales
       </p>
     </div>
 
     <!-- Projects Grid -->
-    <div class="grid md:grid-cols-1 lg:grid-cols-2 gap-8">
+    <div class="grid md:grid-cols-1 lg:grid-cols-2 gap-10">
       {projects.map((project, index) => (
         <article
-          class="group overflow-hidden relative h-[300px] md:h-[400px] bg-[#121212] rounded-2xl flex flex-col hover:border-primary-400 hover:shadow-2xl hover:shadow-primary-500/20 hover:-translate-y-2 transition-all duration-500 cursor-pointer animate-slide-up"
+          class="group overflow-hidden relative h-[300px] md:h-[400px] bg-dark-card rounded-2xl flex flex-col hover:border-primary-400 hover:shadow-2xl hover:shadow-primary-500/20 hover:-translate-y-2 transition-all duration-500 cursor-pointer animate-slide-up"
           style={`animation-delay: ${index * 200}ms`}
         >
 
@@ -40,7 +40,7 @@ const { projects } = Astro.props;
               <h3 class="text-left text-lg md:text-xl lg:text-3xl font-medium tracking-tighter bg-clip-text text-transparent bg-gradient-to-br from-white via-white to-primary-300 group-hover:to-primary-200 group-hover:scale-105 transition-all duration-500">
                 {project.title}
               </h3>
-              <p class="w-full text-gray-300 group-hover:text-gray-200 text-left text-xs md:text-sm lg:text-base font-light tracking-tight leading-relaxed text-balance transition-colors duration-500">
+              <p class="w-full text-gray-400 group-hover:text-gray-300 text-left text-sm lg:text-lg font-light tracking-tight leading-relaxed text-balance transition-colors duration-500">
                 {project.subtitle}
               </p>
             </div>
